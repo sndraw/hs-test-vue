@@ -55,7 +55,6 @@ export default {
     displayList() {
       const list = this.list;
       const pageSize = this.pageSize;
-      const pageCount = this.pageCount;
       const pageNum = this.pageNum;
       // // 开始展示页码
       // const startPageNum = pageNum - 2 > 0 ? pageNum - 2 : 0;
@@ -149,7 +148,7 @@ export default {
     keyDownEvent(event) {
       event.stopPropagation();
       event.preventDefault();
-      const keyCode = e.keyCode;
+      const keyCode = event.keyCode;
       switch (keyCode) {
         case 37:
           console.log('left');
