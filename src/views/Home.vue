@@ -156,6 +156,7 @@ export default {
         case 38:
           if (this.selectedRowNum > 1) {
             this.selectedRowNum--;
+            this.scrollToRow(this.selectedRowNum);
           }
           console.log('up');
           break;
@@ -165,6 +166,7 @@ export default {
         case 40:
           if (this.selectedRowNum < this.rowCount) {
             this.selectedRowNum++;
+            this.scrollToRow(this.selectedRowNum);
           }
           console.log('down');
           break;
@@ -194,6 +196,19 @@ export default {
             });
           }, 50);
         }
+      }
+    },
+    // 滚动到指定行数据
+    scrollToRow(rowNum) {
+      const tableEl = this.$refs[this.tableName];
+      const el = this.$refs[this.tableName].querySelector(
+        `[data-id=${this.tableName}-row-${rowNum}]`
+      );
+      if (el) {
+        tableEl.scroll({
+          top: el.offsetTop - document.body.clientHeight / 2,
+          behavior: 'smooth'
+        });
       }
     }
   }
