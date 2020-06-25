@@ -7,7 +7,6 @@
       <div class="list-th list-code">Code</div>
       <div class="list-th list-percent">Percent</div>
       <div class="list-th list-count">Count</div>
-      <div class="list-th list-date">Create Date</div>
     </div>
     <div class="table-body" :ref="tableName">
       <div class="table-list" :style="{ minHeight: listHeight }">
@@ -30,9 +29,6 @@
           <div class="list-cell list-code">{{ item.code }}</div>
           <div class="list-cell list-percent">{{ item.percent }}</div>
           <div class="list-cell list-count">{{ item.count }}</div>
-          <div class="list-cell list-date">
-            {{ item.createTime | dateFormat }}
-          </div>
         </div>
       </div>
     </div>
@@ -276,6 +272,12 @@ export default {
     font-weight: bold;
     text-align: center;
     border: 1px solid #0a0d13;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    word-break: keep-all;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
   }
   .list-row {
     width: 100%;
@@ -291,6 +293,12 @@ export default {
     padding: 10px;
     text-align: center;
     border: 1px solid #0a0d13;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    word-break: keep-all;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
     &.list-percent {
       color: red;
     }
@@ -299,26 +307,32 @@ export default {
     }
   }
   .list-num {
-    width: 10%;
+    width: 15%;
   }
   .list-title {
-    width: 15%;
+    width: 10%;
   }
   .list-id {
     width: 20%;
   }
   .list-code {
-    width: 10%;
-  }
-  .list-count {
     width: 15%;
   }
-  .list-percent {
-    width: 10%;
-  }
-  .list-date {
+  .list-count {
     width: 20%;
   }
+  .list-percent {
+    width: 20%;
+  }
+}
+/*文字超出省略*/
+.ellipsis {
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  word-break: keep-all;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 ::-webkit-scrollbar {
   width: 10px;
